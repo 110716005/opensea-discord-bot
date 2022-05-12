@@ -6,11 +6,14 @@ const moment = require('moment');
 const Web3 = require('web3');
 const cache = require('./cache');
 const _ = require('lodash');
+const express = require('express');
+const app = express();
+const axios = require('axios');
 
 const { token, minTokenID, maxTokenID, openseaApi, contractAddress } = require('./config.json');
-const axios = require('axios');
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 const url = "https://api.opensea.io/api/v1/collection/alpacadabraz"
+const PORT = process.env.PORT || 3000;
 
 
 setInterval(() => {
@@ -49,12 +52,14 @@ setInterval(() => {
                 // cahnge image url
                 .setImage(imgUrl)
                 .setTimestamp(Date.parse(created))
-            console.log(moment(created).add(moment.duration(8, 'hours')).unix())
-            cache.set('lastSaleTime', moment(created).add(moment.duration(8, 'hours')).unix());
+            console.log(moment(created).unix())
+            cache.set('lastSaleTime', moment(created).unix());
             client.channels.cache.get('974242160293576725').send({ embeds: [exampleEmbed] })
         })
+    }).catch(err => {
+        console.log(err)
     })
-}, 3000)
+}, 30000)
 
 //Listening on https://api.opensea.io
 
@@ -96,12 +101,12 @@ setInterval(() => {
                 // cahnge image url
                 .setImage(imgUrl)
                 .setTimestamp(Date.parse(created))
-            console.log(moment(created).add(moment.duration(8, 'hours')).unix())
-            cache.set('lastListTime', moment(created).add(moment.duration(8, 'hours')).unix() + 1);
+            console.log(moment(created).unix() + 1)
+            cache.set('lastListTime', moment(created).unix() + 1);
             client.channels.cache.get('974243011485634610').send({ embeds: [exampleEmbed] })
         })
     })
-}, 3000)
+}, 30000)
 
 
 client.on('ready', () => {
@@ -175,3 +180,7 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.login(token);
+
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
