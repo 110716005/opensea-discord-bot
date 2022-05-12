@@ -1,0 +1,24 @@
+{
+  "name": "discord_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.13.0",
+    "@discordjs/rest": "^0.4.1",
+    "api": "^4.4.0",
+    "crypto-price": "^0.0.6",
+    "discord-api-types": "^0.32.1",
+    "discord.js": "^13.6.0",
+    "eth-price": "^0.1.5",
+    "get-eth-price": "^1.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.3",
+    "web3": "^1.7.3"
+  }
+}
