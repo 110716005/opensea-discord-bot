@@ -5,5 +5,5 @@
     "clientID": "Your discord clientID",
     "token": "Your discord bot token",
     "openseaApi": "Your opensea Api",
-    "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544" // collection contract address Example:Azuki
+    "contractAddress": "0x306b1ea3ecdf94aB739F1910bbda052Ed4A9f949" // collection contract address Example:Azuki Beanz
 }
