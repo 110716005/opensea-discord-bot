@@ -1,0 +1,9 @@
+{    
+    "minTokenID" : 0, // collection minumum tokenID
+    "maxTokenID" : 9999, // collection maximum tokenID
+    "guildID": "Your discord guildID", 
+    "clientID": "Your discord clientID",
+    "token": "Your discord bot token",
+    "openseaApi": "Your opensea Api",
+    "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544" // collection contract address Example:Azuki
+}
